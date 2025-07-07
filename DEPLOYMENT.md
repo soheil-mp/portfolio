@@ -23,7 +23,7 @@ This React portfolio is configured for deployment to GitHub Pages with both manu
 
 3. **Your site will be live at:**
    ```
-   https://soheil-mp.github.io/portfolio
+   http://soheil.codes
    ```
 
 The GitHub Actions workflow will automatically:
@@ -50,7 +50,7 @@ This will:
 ### Package.json Settings
 ```json
 {
-  "homepage": "https://soheil-mp.github.io/portfolio",
+  "homepage": "http://soheil.codes",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
@@ -145,5 +145,5 @@ The portfolio is fully responsive with:
 
 ---
 
-**Live Site:** https://soheil-mp.github.io/portfolio
+**Live Site:** http://soheil.codes
 **Repository:** https://github.com/soheil-mp/portfolio
