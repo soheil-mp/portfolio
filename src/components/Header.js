@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 /**
  * Header component with navigation and responsive mobile menu
- * Features smooth scrolling and active section highlighting
+ * Features tab-based navigation with route support
  */
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  // Navigation items
+  // Navigation items mapped to routes
   const navItems = [
-    { id: 'hero', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'home', path: '/', label: 'Home' },
+    { id: 'about', path: '/about', label: 'About' },
+    { id: 'skills', path: '/skills', label: 'Skills' },
+    { id: 'projects', path: '/projects', label: 'Projects' },
+    { id: 'experience', path: '/experience', label: 'Experience' },
+    { id: 'contact', path: '/contact', label: 'Contact' }
   ];
 
   // Handle scroll effects
@@ -24,37 +26,21 @@ const Header = () => {
     const handleScroll = () => {
       // Update header background on scroll
       setIsScrolled(window.scrollY > 50);
-
-      // Update active section based on scroll position
-      const sections = navItems.map(item => document.getElementById(item.id)).filter(Boolean);
-      const scrollPosition = window.scrollY + 100;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && scrollPosition >= section.offsetTop) {
-          setActiveSection(navItems[i].id);
-          break;
-        }
-      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Smooth scroll to section
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 80;
-      const elementPosition = element.offsetTop - headerHeight;
-      
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
+  // Navigate to route
+  const navigateToPage = (path) => {
+    navigate(path);
     setIsMenuOpen(false);
+  };
+
+  // Get current active page
+  const getCurrentPage = () => {
+    return navItems.find(item => item.path === location.pathname)?.id || 'home';
   };
 
   return (
@@ -84,7 +70,7 @@ const Header = () => {
               color: 'var(--primary-blue)',
               cursor: 'pointer'
             }}
-            onClick={() => scrollToSection('hero')}
+            onClick={() => navigateToPage('/')}
           >
             Soheil<span style={{ color: 'var(--accent-amber)' }}>.</span>
           </div>
@@ -103,14 +89,14 @@ const Header = () => {
             {navItems.map((item) => (
               <li key={item.id}>
                 <button
-                  onClick={() => scrollToSection(item.id)}
-                  className={`nav__link ${activeSection === item.id ? 'nav__link--active' : ''}`}
+                  onClick={() => navigateToPage(item.path)}
+                  className={`nav__link ${getCurrentPage() === item.id ? 'nav__link--active' : ''}`}
                   style={{
                     background: 'none',
                     border: 'none',
-                    color: activeSection === item.id ? 'var(--primary-blue)' : 'var(--text-primary)',
+                    color: getCurrentPage() === item.id ? 'var(--primary-blue)' : 'var(--text-primary)',
                     fontSize: '1rem',
-                    fontWeight: activeSection === item.id ? '600' : '500',
+                    fontWeight: getCurrentPage() === item.id ? '600' : '500',
                     cursor: 'pointer',
                     padding: '0.5rem 1rem',
                     borderRadius: 'var(--radius-md)',
@@ -118,18 +104,18 @@ const Header = () => {
                     position: 'relative'
                   }}
                   onMouseEnter={(e) => {
-                    if (activeSection !== item.id) {
+                    if (getCurrentPage() !== item.id) {
                       e.target.style.color = 'var(--primary-blue)';
                     }
                   }}
                   onMouseLeave={(e) => {
-                    if (activeSection !== item.id) {
+                    if (getCurrentPage() !== item.id) {
                       e.target.style.color = 'var(--text-primary)';
                     }
                   }}
                 >
                   {item.label}
-                  {activeSection === item.id && (
+                  {getCurrentPage() === item.id && (
                     <span 
                       style={{
                         position: 'absolute',
@@ -211,7 +197,7 @@ const Header = () => {
               {navItems.map((item) => (
                 <li key={item.id}>
                   <button
-                    onClick={() => scrollToSection(item.id)}
+                    onClick={() => navigateToPage(item.path)}
                     style={{
                       width: '100%',
                       background: 'none',

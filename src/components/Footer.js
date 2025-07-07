@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 /**
  * Footer Component
@@ -6,6 +7,7 @@ import React from 'react';
  */
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const navigate = useNavigate();
 
   const socialLinks = [
     {
@@ -32,26 +34,19 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { id: 'about', label: 'About', href: '#about' },
-    { id: 'skills', label: 'Skills', href: '#skills' },
-    { id: 'projects', label: 'Projects', href: '#projects' },
-    { id: 'experience', label: 'Experience', href: '#experience' },
-    { id: 'contact', label: 'Contact', href: '#contact' }
+    { id: 'about', label: 'About', path: '/about' },
+    { id: 'skills', label: 'Skills', path: '/skills' },
+    { id: 'projects', label: 'Projects', path: '/projects' },
+    { id: 'experience', label: 'Experience', path: '/experience' },
+    { id: 'contact', label: 'Contact', path: '/contact' }
   ];
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 80;
-      const elementPosition = element.offsetTop - headerHeight;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
+  const navigateToPage = (path) => {
+    navigate(path);
   };
 
   const scrollToTop = () => {
+    navigate('/');
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -259,7 +254,7 @@ const Footer = () => {
               {quickLinks.map((link) => (
                 <li key={link.id} style={{ marginBottom: 'var(--space-md)' }}>
                   <button
-                    onClick={() => scrollToSection(link.id)}
+                    onClick={() => navigateToPage(link.path)}
                     style={{
                       background: 'none',
                       border: 'none',

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 /**
  * Projects Section Component
  * Showcases portfolio projects with filtering and interactive cards
  */
 const Projects = () => {
+  const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState('all');
   const [visibleProjects, setVisibleProjects] = useState(new Set());
 
@@ -654,17 +656,7 @@ const Projects = () => {
           </p>
           <button 
             className="btn btn--primary"
-            onClick={() => {
-              const element = document.getElementById('contact');
-              if (element) {
-                const headerHeight = 80;
-                const elementPosition = element.offsetTop - headerHeight;
-                window.scrollTo({
-                  top: elementPosition,
-                  behavior: 'smooth'
-                });
-              }
-            }}
+            onClick={() => navigate('/contact')}
             style={{
               padding: 'var(--space-md) var(--space-xl)',
               fontSize: '1.1rem',

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 /**
  * Hero Section Component
  * Features dynamic typing effect and compelling call-to-action
  */
 const Hero = () => {
+  const navigate = useNavigate();
   const [currentRole, setCurrentRole] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
@@ -45,16 +47,8 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, [displayText, isTyping, currentRole, roles]);
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 80;
-      const elementPosition = element.offsetTop - headerHeight;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
+  const navigateToPage = (path) => {
+    navigate(path);
   };
 
   return (
@@ -166,7 +160,7 @@ const Hero = () => {
             >
               <button 
                 className="btn btn--primary"
-                onClick={() => scrollToSection('projects')}
+                onClick={() => navigateToPage('/projects')}
                 style={{
                   padding: '1rem 2rem',
                   fontSize: '1.1rem',
@@ -195,7 +189,7 @@ const Hero = () => {
 
               <button 
                 className="btn btn--secondary"
-                onClick={() => scrollToSection('contact')}
+                onClick={() => navigateToPage('/contact')}
                 style={{
                   padding: '1rem 2rem',
                   fontSize: '1.1rem',
@@ -357,7 +351,7 @@ const Hero = () => {
               opacity: 0.7,
               cursor: 'pointer'
             }}
-            onClick={() => scrollToSection('about')}
+            onClick={() => navigateToPage('/about')}
           ></i>
         </div>
       </div>

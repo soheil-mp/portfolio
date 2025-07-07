@@ -550,3 +550,72 @@ textarea:focus-visible {
     display: none !important;
   }
 }
+
+/* Page Transitions and Routing Styles */
+.page {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: pageEnter 0.6s ease-out;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tab Navigation Responsive Styles */
+.tab-navigation {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tab-item {
+  white-space: nowrap;
+}
+
+/* Main content container */
+.main-content {
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+/* Enhanced focus styles for accessibility */
+.tab-item:focus,
+.nav__link:focus,
+button:focus {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading state (can be used for page transitions) */
+.page-loading {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Enhanced mobile navigation */
+@media (max-width: 768px) {
+  .tab-navigation {
+    position: sticky;
+    top: 70px;
+  }
+  
+  .main-content {
+    padding-top: 0;
+  }
+}
+ 
+/* ==========================================  
+   PAGE TRANSITIONS & ANIMATIONS  
+   ========================================== */ 
