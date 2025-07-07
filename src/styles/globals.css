@@ -579,6 +579,110 @@ textarea:focus-visible {
   white-space: nowrap;
 }
 
+/* Unified Dark Header Styles */
+.unified-header {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.unified-header .header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.unified-header .tabs-container {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 18px;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  padding: 0.375rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.4), 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.unified-header .tab-item {
+  position: relative;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unified-header .tab-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.unified-header .tab-item:hover::before {
+  opacity: 1;
+}
+
+.unified-header .tab-item--active::before {
+  opacity: 1;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(147, 51, 234, 0.2));
+}
+
+/* Remove scrollbar styling since we're using flex layout */
+.unified-header .tabs-container {
+  overflow: visible;
+}
+
+/* Enhanced mobile menu animations */
+.unified-header .nav__mobile {
+  animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced focus and accessibility */
+.unified-header .tab-item:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 4px;
+  border-radius: 16px;
+}
+
+/* Glass morphism effect for better depth */
+.unified-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  pointer-events: none;
+  z-index: -1;
+}
+
 /* Main content container */
 .main-content {
   scroll-behavior: smooth;
@@ -606,13 +710,18 @@ html {
 
 /* Enhanced mobile navigation */
 @media (max-width: 768px) {
-  .tab-navigation {
-    position: sticky;
-    top: 70px;
+  .unified-header .tabs-container {
+    display: none;
   }
   
   .main-content {
-    padding-top: 0;
+    padding-top: 90px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding-top: 80px !important;
   }
 }
  

@@ -5,7 +5,6 @@ import './styles/page-transitions.css';
 
 // Import components
 import Header from './components/Header';
-import TabNavigation from './components/TabNavigation';
 import Footer from './components/Footer';
 
 // Import pages
@@ -27,18 +26,16 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* Navigation Header */}
+        {/* Unified Navigation Header with Tabs */}
         <Header />
-        
-        {/* Tab Navigation */}
-        <TabNavigation />
         
         {/* Main Content with Routes */}
         <main 
           className="main-content"
           style={{
-            minHeight: 'calc(100vh - 160px)', // Account for header and tab nav
-            background: 'var(--bg-primary)'
+            minHeight: 'calc(100vh - 120px)', // Account for compact unified header height
+            background: 'var(--bg-primary)',
+            paddingTop: '120px' // Space for compact fixed header
           }}
         >
           <Routes>
