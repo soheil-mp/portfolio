@@ -1,0 +1,50 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Beautiful portfolio website for Soheil Mohammadpour - Senior Data Scientist & AI Engineer",
+  "author": "Soheil Mohammadpour",
+  "license": "MIT",
+  "homepage": "http://soheil.codes/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soheil-mp/portfolio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/soheil-mp/portfolio/issues"
+  },
+  "keywords": [
+    "portfolio",
+    "react",
+    "data-science",
+    "ai",
+    "machine-learning"
+  ],
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-scripts": "^5.0.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}

@@ -1,0 +1,250 @@
+\documentclass[b3paper]{article}
+
+% Add these packages for font control
+\usepackage{lmodern}  % Better font rendering
+\usepackage{anyfontsize}  % Allows any font size
+
+% Required packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{tcolorbox}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{adjustbox}
+
+% Page geometry
+\geometry{margin=2cm}
+
+% Custom colors
+\definecolor{headercolor}{RGB}{50,50,50}
+\definecolor{boxcolor}{RGB}{245,245,245}
+
+% Modify your projectbox command to include font size control
+\newcommand{\projectbox}[4]{%
+    \begin{tcolorbox}[
+        colback=boxcolor,
+        width=0.32\textwidth,
+        % height=10cm,
+        arc=5pt,
+        box align=top,
+        nobeforeafter,
+        sharp corners=northwest
+    ]
+        \centering
+        \fontsize{18pt}{20pt}\selectfont\textbf{#1}\\[0.5cm]  % Larger title font
+        \includegraphics[width=0.7\linewidth,height=15cm,keepaspectratio]{#2}\\[0.3cm]
+        \fontsize{14pt}{16pt}\selectfont #3\par  % Slightly smaller description font
+        % \vfill 
+        \\[0.3cm]
+        \href{#4}{\faGithub\ GitHub Link}
+    \end{tcolorbox}%
+}
+
+% Global font size settings
+\renewcommand{\normalsize}{\fontsize{14pt}{16pt}\selectfont}
+\setlength{\textwidth}{0.9\paperwidth}
+\setlength{\textheight}{0.9\paperheight}
+
+
+% Modify project row to use tabular for precise alignment
+\newcommand{\projectrow}[3]{%
+    \begin{center}
+    \begin{tabular}{@{}c@{\hspace{0.5cm}}c@{\hspace{0.5cm}}c@{}}
+    #1 & #2 & #3
+    \end{tabular}
+    \end{center}
+}
+
+% Section-specific project box commands with different heights
+
+% RL specification
+\newcommand{\rlprojectbox}[4]{%
+    \begin{tcolorbox}[
+        colback=boxcolor,
+        width=0.32\textwidth,
+        height=9.7cm,  % Height for Reinforcement Learning section
+        arc=5pt,
+        box align=top,
+        nobeforeafter,
+        sharp corners=northwest
+    ]
+        \centering
+        \fontsize{18pt}{20pt}\selectfont\textbf{#1}\\[0.5cm]
+        \includegraphics[width=0.7\linewidth,height=15cm,keepaspectratio]{#2}\\[0.3cm]
+        \fontsize{14pt}{16pt}\selectfont #3\par
+        \\[0.3cm]
+        \href{#4}{\faGithub\ GitHub Link}
+    \end{tcolorbox}%
+}
+
+% GenAI specification
+\newcommand{\genaiprojectbox}[4]{%
+    \begin{tcolorbox}[
+        colback=boxcolor,
+        width=0.32\textwidth,
+        height=11.7cm,  % Height for Generative AI section
+        arc=5pt,
+        box align=top,
+        nobeforeafter,
+        sharp corners=northwest
+    ]
+        % Same internal content structure as above
+        \centering
+        \fontsize{18pt}{20pt}\selectfont\textbf{#1}\\[0.5cm]
+        \includegraphics[width=1\linewidth,height=15cm,keepaspectratio]{#2}\\[0.3cm]
+        \fontsize{14pt}{16pt}\selectfont #3\par
+        \\[0.3cm]
+        \href{#4}{\faGithub\ GitHub Link}
+    \end{tcolorbox}%
+}
+
+% CV specification
+\newcommand{\cvprojectbox}[4]{%
+    \begin{tcolorbox}[
+        colback=boxcolor,
+        width=0.32\textwidth,
+        height=12.5cm,  % Height for Computer Vision section
+        arc=5pt,
+        box align=top,
+        nobeforeafter,
+        sharp corners=northwest
+    ]
+        % Same internal content structure
+        \centering
+        \fontsize{18pt}{20pt}\selectfont\textbf{#1}\\[0.5cm]
+        \includegraphics[width=0.8\linewidth,height=15cm,keepaspectratio]{#2}\\[0.3cm]
+        \fontsize{14pt}{16pt}\selectfont #3\par
+        \\[0.3cm]
+        \href{#4}{\faGithub\ GitHub Link}
+    \end{tcolorbox}%
+}
+
+% Data Engineering specification
+\newcommand{\dataprojectbox}[4]{%
+    \begin{tcolorbox}[
+        colback=boxcolor,
+        width=0.32\textwidth,
+        height=15.5cm,  % Height for Data Engineering section
+        arc=5pt,
+        box align=top,
+        nobeforeafter,
+        sharp corners=northwest
+    ]
+        % Same internal content structure
+        \centering
+        \fontsize{18pt}{20pt}\selectfont\textbf{#1}\\[0.5cm]
+        \includegraphics[width=1\linewidth,height=15cm,keepaspectratio]{#2}\\[0.3cm]
+        \fontsize{14pt}{16pt}\selectfont #3\par
+        \\[0.3cm]
+        \href{#4}{\faGithub\ GitHub Link}
+    \end{tcolorbox}%
+}
+
+% NLP specification
+\newcommand{\nlpprojectbox}[4]{%
+    \begin{tcolorbox}[
+        colback=boxcolor,
+        width=0.32\textwidth,
+        height=13.5cm,  % Height for NLP section
+        arc=5pt,
+        box align=top,
+        nobeforeafter,
+        sharp corners=northwest
+    ]
+        % Same internal content structure
+        \centering
+        \fontsize{18pt}{20pt}\selectfont\textbf{#1}\\[0.5cm]
+        \includegraphics[width=0.9\linewidth,height=15cm,keepaspectratio]{#2}\\[0.3cm]
+        \fontsize{14pt}{16pt}\selectfont #3\par
+        \\[0.3cm]
+        \href{#4}{\faGithub\ GitHub Link}
+    \end{tcolorbox}%
+}
+
+\begin{document}
+
+% Header section
+\begin{center}
+    \textcolor{headercolor}{\Huge\textbf{Portfolio}}\\[0.5cm]
+    \textcolor{headercolor}{\Large Soheil Mohammadpour}\\[0.3cm]
+    \href{mailto:john.doe@email.com}{\faEnvelope\ soheil.mpg@email.com} \quad
+    \href{https://github.com/soheil-mp}{\faGithub\ GitHub.com/soheil-mp} \quad
+    \href{https://www.linkedin.com/in/soheilmp/}{\faLinkedin\ LinkedIn.com/in/soheilmp/}\\[1cm]
+\end{center}
+
+% Section 1: Reinforcement Learning | Robotics
+\section*{\LARGE{Reinforcement Learning | Robotics}}
+
+\projectrow
+{\rlprojectbox{Automated Plant Inoculation}{assets/plant_inoculation_1.png}
+{Automated system combining root image analysis and robotic precision for targeted plant inoculation (for vaccinating plant).}
+{https://github.com/soheil-mp/Plant-Inoculation-AI}}
+{\rlprojectbox{Auto Pilot Gaming}{assets/autopilot_gaming.png}
+{A deep reinforcement learning framework for training AI agents in classic control and Atari environments.}
+{https://github.com/soheil-mp/Auto-Pilot-Gaming}}
+{\rlprojectbox{Sky Pilot}{assets/skypilot_1.png}
+{An autonomous drone navigation system combining classical approaches with cutting-edge reinforcement learning.}
+{https://github.com/soheil-mp/SkyPilot}}
+
+% Section 2: Generative AI
+\section*{\LARGE{Generative AI}}
+
+\projectrow
+{\genaiprojectbox{Game Asset Lab}{assets/game_asset_lab.png}
+{AI-powered game asset generation studio that transforms creative prompts into professional, production-ready game assets using advanced Stable Diffusion techniques.}
+{https://github.com/soheil-mp/GameAssetLab}}
+{\genaiprojectbox{AI Therapist Assistant}{assets/ai_therapist.png}
+{Fine-tuned Llama-3.2 1B offering mental health conversations through a secure, local-first approach.}
+{https://github.com/soheil-mp/AI-Therapist-Assistant}}
+{\genaiprojectbox{Doc Chat}{assets/doc_chat.png}
+{Intelligent document Q\&A interface powered by Retrieval-Augmented Generation (RAG), transforming static documents into dynamic, interactive knowledge bases.}
+{https://github.com/soheil-mp/DocChat}}
+
+% Section 3: Computer Vision
+\section*{\LARGE{Computer Vision (with Deep Learning)}}
+
+\projectrow
+{\cvprojectbox{Skin Cancer Detection}{assets/skin_cancer.png}
+{Advanced deep learning image classification and segmentation for precise skin lesion analysis, utilizing state-of-the-art neural network architectures for early disease detection.}
+{https://github.com/soheil-mp/Skin-cancer-recoginition}}
+{\cvprojectbox{Plant Health Detector}{assets/plant_health.png}
+{Sophisticated system for automated plant disease identification through leaf image analysis and machine learning techniques.}
+{https://github.com/soheil-mp/Plant-Health-Detector}}
+{\cvprojectbox{CV for Autonomous Driving}{assets/autonomous_driving.png}
+{Implementation of object detection and road segmentation algorithms for autonomous vehicles.}
+{https://github.com/soheil-mp/cv-for-autonomous-driving}}
+
+% Section 4: Data Engineering | Data Analytics
+\section*{\LARGE{Data Engineering | Data Analytics}}
+
+\projectrow
+{\dataprojectbox{Crypto Price Monitoring}{assets/crypto_monitoring.png}
+{Sophisticated real-time cryptocurrency tracking system with advanced analytics, alerting, and comprehensive market insights.}
+{https://github.com/soheil-mp/Crypto-Price-Monitoring-System}}
+{\dataprojectbox{IoT Smart Home Dashboard}{assets/iot_dashboard.png}
+{Advanced real-time data pipeline for smart home sensor analytics, featuring stream processing, efficient data storage, and intuitive visualization capabilities.}
+{https://github.com/soheil-mp/IoT-Smart-Home-Data-Pipeline}}
+{\dataprojectbox{Employment Monitoring}{assets/employment_dashboard.png}
+{Comprehensive employment analytics dashboard leveraging PowerBI to provide deep insights into labor market trends and unemployment dynamics.}
+{https://github.com/soheil-mp/unemployment-dashboard-powerbi}}
+
+% Section 5: NLP and Audio Processing
+\section*{\LARGE{NLP and Audio Processing (with Deep Learning)}}
+
+\projectrow
+{\nlpprojectbox{Text-to-Speech / Voice Cloning}{assets/voice_cloning.png}
+{State-of-the-art end-to-end Text-to-Speech model utilizing advanced deep learning techniques to generate natural, high-fidelity audio waveforms.}
+{https://github.com/soheil-mp/VITS-Conditional-Variational-Autoencoder-with-Adversarial-Learning-}}
+{\nlpprojectbox{Speech Recognition}{assets/speech_recognition.png}
+{Advanced speech-to-text system implementing cutting-edge machine learning algorithms for accurate and robust audio transcription.}
+{https://github.com/soheil-mp/Speech-Recognition}}
+{\nlpprojectbox{News Trading Signal}{assets/trading_signal.png}
+{NLP based solution for extracting market sentiment and generating trading insights from news data.}
+{https://github.com/soheil-mp/news-trading-signal}}
+
+\end{document}

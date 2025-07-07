@@ -1,0 +1,205 @@
+\documentclass[a4paper,11pt]{article}
+
+% Base packages
+\usepackage[top=0.6in,bottom=0.6in,left=0.7in,right=0.7in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{etoolbox}
+\usepackage{fancyhdr}
+
+% Refined color definitions
+\definecolor{darkgray}{RGB}{40,40,40}
+\definecolor{mediumgray}{RGB}{90,90,90}
+\definecolor{lightgray}{RGB}{248,248,248}
+\definecolor{bordercolor}{RGB}{200,200,200}
+
+% Font settings - more elegant
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+
+% Hyperref settings
+\hypersetup{
+    colorlinks=true,
+    urlcolor=darkgray,
+    linkcolor=darkgray,
+    pdfauthor={Soheil Mohammadpour},
+    pdftitle={Soheil Mohammadpour - Resume},
+    pdfsubject={Resume}
+}
+
+% Section formatting
+\titleformat{\section}
+{\Large\bfseries}
+{}{0em}
+{\uppercase}[{\vspace{0.1em}\rule{\textwidth}{1pt}}]
+
+% List settings
+\setlist[itemize]{
+    leftmargin=0.2in,
+    itemsep=0.05em,
+    topsep=0.1em,
+    parsep=0em,
+    label={\footnotesize\textbullet}
+}
+
+% Document settings
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+
+% Custom commands
+\newcommand{\role}[4]{%
+    \vspace{0.2em}%
+    \noindent{\textbf{\large#1}}\hfill{\textit{\small#2}}\\%
+    {\textit{\small\color{mediumgray}#3}}%
+    \ifstrempty{#4}{}{%
+        \vspace{0.1em}%
+        \begin{itemize}%
+            #4%
+        \end{itemize}%
+    }%
+}
+
+\newcommand{\skillsection}[2]{%
+    {\textbf{#1}} & #2 \\[0.1em]%
+}
+
+\newcommand{\cert}[4]{%
+  \textbf{#1}, \textit{#2} & #3 \hfill {\small\href{#4}{\faExternalLink*}} \\[0.4em]%
+}
+
+\begin{document}
+
+% Header with subtle background
+\begin{center}
+\fcolorbox{bordercolor}{lightgray}{%
+\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule}
+\vspace{0.2em}
+\begin{center}
+{\LARGE\textbf{SOHEIL MOHAMMADPOUR}}\\[0.3em]
+{\large Senior Data Scientist \& AI Engineer}\\[0.5em]
+{\small
+\faMapMarker*\, Roosendaal, Netherlands
+\hspace{0.5em}$\cdot$\hspace{0.5em}
+\faEnvelope\, \href{mailto:soheil.mpg@gmail.com}{soheil.mpg@gmail.com}
+\hspace{0.5em}$\cdot$\hspace{0.5em}
+\faLinkedin\, \href{https://linkedin.com/in/soheilmp}{/soheilmp}
+\hspace{0.5em}$\cdot$\hspace{0.5em}
+\faGithub\, \href{https://github.com/soheil-mp}{github.com/soheil-mp}
+}
+\end{center}
+\vspace{0.2em}
+\end{minipage}}
+\end{center}
+
+% Professional Summary
+\section{PROFESSIONAL SUMMARY}
+% \small\justify
+
+Hey there! I’m a data science enthusiast with 6+ years of experience across the full spectrum: analysis, machine learning, deep learning, NLP, computer vision, and reinforcement learning. From building trading strategies to teaching AI to teens, I’ve done it all—and loved every minute. 
+
+
+\vspace{0.2em}
+
+% Professional Experience
+\section{PROFESSIONAL EXPERIENCE}
+
+\role{AI Engineer}{June 2024 - Present | Roosendaal, Netherlands}{\textsc{Enigma Code} (KVK: 94270112)}{%
+    \item Working as a self-employed professional, undertaking freelance and contract-based projects in data science.
+    \item Clients include Outlier.AI and RWS group.
+}
+
+\role{Data Scientist}{May 2021 - May 2024 | Yerevan, Armenia}{\textsc{GrabSoft} (subsidiary of SAS Group Armenia)}{%
+    \item Implemented and optimized backtesting strategies using advanced data science techniques, including NLP and machine learning.
+    \item Successfully developed, proposed, and deployed data-driven trading strategies in a production environment.
+}
+
+\role{NLP Project Reviewer}{2020 - 2021 | California, US (Remote)}{\textsc{Udacity}}{%
+    \item Reviewed and graded student projects for the "Natural Language Processing (NLP) Nanodegree" program.
+    \item Graded final coding projects and provided pass/fail decisions based on rubric requirements and detailed guidance.
+}
+
+\role{NLP \& Deep Learning Engineer}{Sep 2019 - Jan 2020 | California, US (Remote)}{\textsc{UltraBright Education}}{%
+    \item Developed educational materials to teach deep learning and NLP to high school students.
+    \item Created resources including presentation slides, teaching notes, coding exercises, and final projects.
+}
+
+\role{NLP Mentor}{Mar 2019 - Sep 2019 | California, US (Remote)}{\textsc{Udacity}}{%
+    \item Mentored students in the "Natural Language Processing (NLP) Nanodegree" program.
+    \item Provided detailed technical feedback, hosted live coding demonstrations, conducted weekly one-on-one sessions, and guided the students throughout the program.
+}
+
+% Education
+\section{EDUCATION}
+
+\role{Applied Data Science \& Artificial Intelligence}{2023 - Present}{\textsc{Breda University of Applied Sciences} (BUas)}{%
+    \item Currently pursuing a degree focusing on cutting-edge techniques in machine learning, deep learning, and data analysis.
+}
+\vspace{2em}
+\role{Bachelor's in Computer Science}{2015 - 2017}{\textsc{University of Lugano}}{%
+    \item Completed coursework in data structures, algorithms, operating systems, and software engineering.
+    \item Discontinued in second year.
+}
+
+% Technical Expertise
+\section{TECHNICAL EXPERTISE}
+
+% \fcolorbox{bordercolor}{white}{%
+% \begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule}
+\vspace{0.2em}
+\begin{tabular}{@{}p{0.22\textwidth}@{}p{0.71\textwidth}@{}}
+\skillsection{Programming}{Python $\cdot$ SQL $\cdot$ C++ $\cdot$ C $\cdot$ R $\cdot$ Shell} 
+\skillsection{Data Analysis}{NumPy $\cdot$ Pandas $\cdot$ SciPy $\cdot$ Dask $\cdot$ PySpark $\cdot$ Matplotlib $\cdot$ Seaborn $\cdot$ Plotly $\cdot$ Bokeh $\cdot$ ggplot $\cdot$ Dash} 
+\skillsection{ML/DL}{Scikit-learn $\cdot$ Statsmodels $\cdot$ TensorFlow $\cdot$ PyTorch $\cdot$ Keras $\cdot$ XGBoost $\cdot$ Hugging Face $\cdot$ Transformers} 
+\skillsection{GenAI}{LangChain $\cdot$ LangGraph $\cdot$ CrewAI $\cdot$ Autogen $\cdot$ LlamaIndex $\cdot$ Pinecone $\cdot$ ChromaDB $\cdot$ FAISS $\cdot$ Gradio} 
+\skillsection{Data Engineering}{Apache Airflow $\cdot$ Apache Spark $\cdot$ Apache Kafka $\cdot$ Apache Hadoop $\cdot$ Databricks} 
+\skillsection{Databases}{MySQL $\cdot$ PostgreSQL $\cdot$ SQLite $\cdot$ Redis $\cdot$ MongoDB $\cdot$ Snowflake} 
+\skillsection{Cloud \& MLOps}{AWS $\cdot$ Azure $\cdot$ Git $\cdot$ Docker $\cdot$ Kubernetes $\cdot$ MLflow} 
+\skillsection{BI \& Visualization}{Tableau $\cdot$ Power BI $\cdot$ Looker $\cdot$ Excel $\cdot$ Power Query $\cdot$ Streamlit} 
+\end{tabular}
+\vspace{0.2em}
+% \end{minipage}}
+
+% Certifications - single column layout as in the original
+\section{CERTIFICATIONS}
+
+% \fcolorbox{bordercolor}{white}{%
+% \begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule}
+\vspace{0.2em}
+\begin{tabularx}{\textwidth}{@{}X r@{}}
+\cert{Database Engineer Professional Certificate}{Meta}{2024}{https://coursera.org/share/1d4db1480bde9dbc903722258a0b910a}
+\cert{Introduction to Generative AI}{Google}{2024}{https://coursera.org/share/c83b06161241a5ba5b6e323fa779cb13}
+\cert{Power BI Skill Track}{DataCamp}{2023}{https://www.datacamp.com/statement-of-accomplishment/track/023d8e897cce721abc2c17ffe829484e2ee40ef0}
+\cert{Deep Learning Specialization}{DeepLearning.AI}{2023}{https://coursera.org/verify/specialization/S3HPHUCFHX2G}
+\cert{Build a Custom Chatbot with ML-Driven Prompt Engineering}{Udacity}{2023}{https://confirm.udacity.com/e/faffb95a-cd98-11ed-bd42-eb2bde52f528}
+\cert{Machine Learning Specialization}{Stanford University}{2022}{https://coursera.org/share/cd0ea00e30ac083a2e5536fefa0ebfc4}
+\cert{Natural Language Processing Specialization}{DeepLearning.AI}{2022}{https://www.coursera.org/account/accomplishments/specialization/YU4XJ24SBHKW}
+\cert{Artificial Intelligence Nanodegree}{Udacity}{2020}{https://www.udacity.com/certificate/3RN5THRE}
+\cert{AI in Trading Nanodegree}{Udacity}{2020}{https://www.udacity.com/certificate/e/407d8a12-7067-11ea-964e-dfdb7eeaf6f1}
+\cert{Robotics Nanodegree}{Udacity}{2020}{https://www.udacity.com/certificate/DFERED7P}
+\cert{Reinforcement Learning Nanodegree}{Udacity}{2020}{https://www.udacity.com/certificate/E7GALH2}
+\cert{IBM Data Science Specialization}{IBM}{2019}{https://www.coursera.org/account/accomplishments/professional-cert/ZB3TL8WUV5ZQ}
+\cert{Computer Vision Nanodegree}{Udacity}{2018}{https://www.udacity.com/certificate/ETMG4GSV}
+\cert{Natural Language Processing (NLP) Nanodegree}{Udacity}{2018}{https://www.udacity.com/certificate/XTGAYHSL}
+\cert{Deep Learning Nanodegree}{Udacity}{2018}{https://www.udacity.com/certificate/UDKDTEDJ}
+\cert{Artificial Intelligence A-Z: Hands-on Building an AI}{Udemy}{2017}{https://www.udemy.com/certificate/UC-Z2L4VDVD/}
+\cert{Computer Vision A-Z: OpenCV, GANs, and Cutting Edge AI}{Udemy}{2017}{https://www.udemy.com/certificate/UC-AE0UEFEV/}
+\cert{Deep Learning A-Z: Hands-on Artificial Neural Networks}{Udemy}{2017}{https://www.udemy.com/certificate/UC-ELQEES1R/}
+\cert{Machine Learning A-Z: Hands-on Python \& R in Data Science}{Udemy}{2017}{https://www.udemy.com/certificate/UC-KMT2M97A/}
+\end{tabularx}
+\vspace{0.2em}
+% \end{minipage}}
+
+\vspace{0.3em}
+\begin{center}
+\textit{\footnotesize References available upon request}
+\end{center}
+
+\end{document}
