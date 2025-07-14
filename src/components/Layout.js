@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
         <div className="container">
           <div className="nav-content">
             <Link to="/" className="nav-brand">
-              Data and AI Chronicle
+              Mind Over Machine
             </Link>
             <ul className="nav-links">
               <li>

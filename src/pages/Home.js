@@ -28,7 +28,7 @@ const Home = () => {
       <div>
         <section className="hero">
           <div className="container">
-            <h1>Data and AI Chronicle</h1>
+            <h1>Mind Over Machine</h1>
             <p>Decoding cutting-edge algorithms and methods, this blog unravels the intricate mechanics of artificial intelligence.</p>
           </div>
         </section>
@@ -44,7 +44,7 @@ const Home = () => {
       {/* Hero Section */}
       <section className="hero">
         <div className="container">
-          <h1>Data and AI Chronicle</h1>
+          <h1>Mind Over Machine</h1>
           <p>Decoding cutting-edge algorithms and methods, this blog unravels the intricate mechanics of artificial intelligence.</p>
         </div>
       </section>
